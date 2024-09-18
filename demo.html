@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script src="demo.js"></script> -->
+    </head>
+<body>
+    <table>
+        <tr>
+            <td>Item Name</td> <td><input type="text" id="name" placeholder="Enter your item name" required></td>
+        </tr>
+        <tr>
+            <td>Quantity </td> <td><input type="number" id="quantity" placeholder="Enter quantity" required></td>
+        </tr>
+        <tr>
+            <td>Price </td> <td><input type="number" id="price" placeholder="Enter price" value="120"></td>
+        </tr>
+        <td>
+            <input type="button" value="Submit" onclick="addData()">
+            <input type="reset">
+        </td>
+    </table>
+
+    <hr>
+    
+    <h2>Submitted Data</h2>
+    <!-- <div>
+        <div class="drpdown "><button class="dropbtn">Select Name</button>
+            <div  class="drp-content">
+                <button onclick="setCriteria('name')">Item</button>
+                <button onclick="setCriteria('price')">Price</button>
+            </div>
+        </div>
+        
+        <div class="drpdown"><button class="dropbtn">sort By</button>
+            <div  class="drp-content">
+                <button onclick="setOrder('asc')">Ascending</button>
+                <button onclick="setOrder('desc')">Decending</button>
+            </div>
+        </div>
+        
+        <button class="dropbtn" onclick="sortTable()">Submit</button>
+    </div> -->
+
+  <div class="sorts">
+        <select name="Select Name" onchange="setCriteria(this.value)">
+            <option value="">Select Name</option>
+            <option value="name" >Item</option>
+            <option value="price">Price</option>
+        </select>
+        <select name="Sort By" onchange=" setOrder(this.value)">
+            <option value="">Sort By</option>
+            <option value="asc" >ascending</option>
+            <option value="asp">descending</option>
+        </select>
+    <input type="submit" onclick="sortTable()">  
+        <label class="switch">
+        <input type="checkbox" onclick="toggleHiddenItems()">
+        <span class="slider round"></span>
+      </label>
+
+    
+
+    </div>
+    <table class="table" id="cartTable">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity (kg)</th>
+                <th>Price per kg</th>
+                <th>Total Price</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="cartTableBody">
+
+        </tbody>
+    </table>
+    
+
+
+    <!-- Modal code here -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Item</h2>
+            <label for="editName">Item Name</label>
+            <input type="text" id="editName"><br><br>
+            <label for="editQuantity">Quantity</label>
+            <input type="number" id="editQuantity"><br><br>
+            <label for="editPrice">Price</label>
+            <input type="number" id="editPrice"><br><br>
+            <input type="button" value="Save" onclick="saveChanges()">
+        </div>
+    </div>
+
+    <div id="del-model" class="delmodel">
+        <div class="del-model-content">
+            <span class="dclose" onclick="closeModal()">&times;</span>
+            <h2>Delete Item</h2>
+            <hr>
+            <h4>Are You Sure <br> you want to delete the item?</h4>
+    
+            <input type="button" value="yes" onclick="deleteItem(currentIndex)">
+            <input type="button" value="no" onclick="closeModal()">
+        </div>
+    </div>
+    
+
+    <!-- Include your JavaScript at the bottom -->
+    <script src="basic.js"></script>
+</body>
+
+</html>
