@@ -60,20 +60,18 @@ function updateCartTable() {
         deleteButton.onclick = () => openDelmodel(index);
         cell6.appendChild(deleteButton);
 
-        if (item.hidden) {
+        if (!item.hidden) {
+            newRow.style.display = ''; // Show normal rows
+            newRow.style.opacity = '1';   
+        } else {
             if (showHidden) {
                 newRow.style.display = '';
                 newRow.style.opacity = '0.5'; 
                 updateButton.disabled=true;
                 deleteButton.disabled=true;
             } else {
-                newRow.style.display = 'none'; 
-            }
-        } else {
-            newRow.style.display = ''; // Show normal rows
-            newRow.style.opacity = '1'; 
-            updateButton.disabled=false;                           // Fully opaque for visible items
-            deleteButton.disabled=false;                           // Fully opaque for visible items
+                newRow.style.display = 'none';  //if no delete no one can display
+            }                
         }
     });
 }

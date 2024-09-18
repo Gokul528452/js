@@ -103,8 +103,12 @@
 
   .sorts{
     display: inline;
+    width: 100%;
   }
-
+  .togg_p{
+    margin-left: 750px;
+    margin-top: -20px;
+  }
   /* .toggle{
     display: inline;
     margin-left: 800px;
@@ -116,6 +120,7 @@
     display: inline-block;
     width: 40px;
     height: 20px;
+    margin-left: 620px;
   }
 
   .switch input { 
