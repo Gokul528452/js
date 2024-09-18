@@ -63,44 +63,43 @@ function updateCartTable() {
         if (item.hidden) {
             if (showHidden) {
                 newRow.style.display = '';
-                document.getElementById(newRow).className="bg_color"
-                // newRow.style.opacity = '0.5'; // Make the row semi-transparent
+                newRow.style.opacity = '0.5'; // Make the row semi-transparent
             } else {
                 newRow.style.display = 'none'; // Hide the row if not toggled
             }
         } else {
             newRow.style.display = ''; // Show normal rows
-            // newRow.style.opacity = '1'; // Fully opaque for visible items
+            newRow.style.opacity = '1'; // Fully opaque for visible items
         }
     });
 }
 
-// Function to open the delete confirmation modal
+
 function openDelmodel(index) {
     currentIndex = index;
     document.getElementById("del-model").style.display = "block";
 }
 
-// Function to hide (soft-delete) an item
+
 function deleteItem(index) {
     cartItems[index].hidden = true; // Mark the item as hidden
-    updateCartTable();  // Update the cart display
+    updateCartTable();  
     alert("Item will be deleted.");
     closeModal();
 }
 
-// Function to close any modal
+
 function closeModal() {
     document.getElementById("del-model").style.display = "none";
 }
 
-// Function to toggle hidden items
+
 function toggleHiddenItems() {
-    showHidden = !showHidden; // Toggle the flag
-    updateCartTable(); // Update the cart table to show or hide hidden items
+    showHidden = !showHidden; 
+    updateCartTable(); 
 }
 
-// Function to open the update modal
+
 function openUpdateModal(index) {
     const item = cartItems[index];
     currentIndex = index;
@@ -112,7 +111,6 @@ function openUpdateModal(index) {
     document.getElementById("myModal").style.display = "block";
 }
 
-// Function to save changes for an updated item
 function saveChanges() {
     const updatedName = document.getElementById("editName").value;
     const updatedQuantity = document.getElementById("editQuantity").value;
@@ -131,7 +129,7 @@ function saveChanges() {
     alert("Item has been updated.");
 }
 
-// Modal close behavior for update modal
+
 const modal = document.getElementById("myModal");
 const span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
