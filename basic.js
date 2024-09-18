@@ -63,13 +63,17 @@ function updateCartTable() {
         if (item.hidden) {
             if (showHidden) {
                 newRow.style.display = '';
-                newRow.style.opacity = '0.5'; // Make the row semi-transparent
+                newRow.style.opacity = '0.5'; 
+                updateButton.disabled=true;
+                deleteButton.disabled=true;
             } else {
-                newRow.style.display = 'none'; // Hide the row if not toggled
+                newRow.style.display = 'none'; 
             }
         } else {
             newRow.style.display = ''; // Show normal rows
-            newRow.style.opacity = '1'; // Fully opaque for visible items
+            newRow.style.opacity = '1'; 
+            updateButton.disabled=false;                           // Fully opaque for visible items
+            deleteButton.disabled=false;                           // Fully opaque for visible items
         }
     });
 }
